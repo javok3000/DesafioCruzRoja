@@ -16,11 +16,12 @@ steps:
   displayName: 'Install Node.js'
 
 - task: DownloadSecureFile@1
+  name: EnvFile
   inputs:
     secureFile: '.env'
 
 - script: |
-    source .env
+    source $(EnvFile.secureFilePath)
     cd server/
     npm install
     npm run start
