@@ -21,6 +21,20 @@ steps:
     npm run build --loglevel verbose
   displayName: 'npm install and build'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'client/'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: '$(Build.BuildId).zip'
+    publishLocation: 'Container'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerKiko'
