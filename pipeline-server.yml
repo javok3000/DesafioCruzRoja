@@ -44,5 +44,6 @@ steps:
     containerRegistry: 'DockerKiko'
     repository: 'kikohernandez92/javoserver'
     command: 'buildAndPush'
+    buildContext: 'server/'
     Dockerfile: 'Dockerfiles/server.Dockerfile'
 
