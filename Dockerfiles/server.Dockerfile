@@ -6,4 +6,4 @@ RUN npm install
 COPY . .
 COPY .env .
 EXPOSE 3001
-RUN npm run start
+CMD ["npm run start"]
