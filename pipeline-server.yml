@@ -39,3 +39,10 @@ steps:
     ArtifactName: '$(Build.BuildId).zip'
     publishLocation: 'Container'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerKiko'
+    repository: 'kikohernandez92/javoserver'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfiles/server.Dockerfile'
+
