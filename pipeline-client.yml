@@ -26,6 +26,7 @@ steps:
     containerRegistry: 'DockerKiko'
     repository: 'kikohernandez92/javoclient'
     command: 'buildAndPush'
+    buildContext: 'client/'
     Dockerfile: 'Dockerfiles/client.Dockerfile'
 
 
