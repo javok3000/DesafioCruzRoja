@@ -15,7 +15,12 @@ steps:
     versionSpec: '18.x'
   displayName: 'Install Node.js'
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: '.env'
+
 - script: |
+    source .env
     cd server/
     npm install
     npm run start
