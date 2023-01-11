@@ -21,4 +21,11 @@ steps:
     npm run build --loglevel verbose
   displayName: 'npm install and build'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerKiko'
+    repository: 'kikohernandez92/javoclient'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfiles/client.Dockerfile'
+
 
