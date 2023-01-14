@@ -3,6 +3,7 @@ FROM node:18 as build
 WORKDIR /usr/src/app
 COPY package.json ./
 RUN npm install --force
+RUN npm dedupe
 COPY . .
 RUN npm run build
 # Copying to PROD
