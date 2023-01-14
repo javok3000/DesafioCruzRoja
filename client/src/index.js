@@ -9,6 +9,9 @@ import { Welcome } from './components/welcome';
 import { ChangePass } from './components/welcome/changePass';
 import { RegisterLanding } from './components/registerLanding';
 import './sass/styles.scss'
+import { SignIn } from './components/welcome/signin';
+import { Register } from './components/welcome/register';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
