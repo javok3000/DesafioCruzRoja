@@ -17,7 +17,7 @@ steps:
 
 - script: |
     cd client/
-    npm install
+    npm install --force
     npm run build --loglevel verbose
   displayName: 'npm install and build'
 
