@@ -17,7 +17,7 @@ steps:
 
 - script: |
     cd client/
-    npm install --force
+    npm install --legacy-peer-deps --global-style
     npm run build --loglevel verbose
   displayName: 'npm install and build'
 
