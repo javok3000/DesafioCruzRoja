@@ -1,8 +1,7 @@
-#DROP DATABASE dbTest;
-    CREATE DATABASE dbTest;
+
     USE dbTest;
     
-        #drop table users
+     
     CREATE TABLE users(
         user_id INT AUTO_INCREMENT,
         user_name VARCHAR(50),
@@ -27,9 +26,7 @@
         PRIMARY KEY(user_id)  
     ); 
     
-   
- #DROP TABLE channels;
-
+    
     
     CREATE TABLE channels(
         id INT AUTO_INCREMENT,
@@ -44,16 +41,9 @@
 		updatedat datetime DEFAULT NULL COMMENT 'updated time',
         PRIMARY KEY(id)
     ); 
-    #insert into channels VALUES (null, 3,null,null, 2,null,null, "active","2021-01-12", "2021-01-12");
-    insert into channels VALUES (null, 3,'image2.png','Henalu', 2,'image2.jpg','Jorge', "active","2021-01-12", "2021-01-12");
-    #insert into channels VALUES (null, 3, 2, "active","2021-01-12", "2021-01-12");
-     #insert into channels VALUES (null, 2, 5, "archived","2021-01-12", "2021-01-12");
-    
+   
   
-    
-    
-    
-#DROP TABLE messages
+  
     CREATE TABLE messages(
         id INT AUTO_INCREMENT,
         fk_user_id_sender INT,
@@ -136,30 +126,7 @@ insert into users VALUES (null, 'Lydia', 'Vega', 'Hola, soy Lydia', 'lydia@gmail
 insert into users VALUES (null, 'Jose Angel', 'Contreras', 'Hola, soy Jose Angel', 'joseangel@gmail.com',  '$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK', 1979, 
 "Masculino",'Spain','Spanish','Más de dos años','Sí','Master', 'Emocional',false,'Sierra de la Cabrera','image2.jpg',"2021-01-12", "2021-01-12");
 
-insert into users VALUES (null, 'Elena', 'Contreras', 'Hola, soy Jose Elena', 'elena@gmail.com',  '$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK', 1979, 
+insert into users VALUES (null, 'Elena', 'Contreras', 'Hola, soy Elena', 'elena@gmail.com',  '$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK', 1979, 
 "Femenino",'Spain','Spanish','Más de dos años','Sí','Master', 'Emocional',false,'Sierra de la Cabrera','image3.jpg',"2021-01-12", "2021-01-12");
 
-#insert into messages VALUES (null, 2, 3, 6, "Dándole caña","2021-01-12", "2021-01-12");
-       #insert into messages VALUES (null, 3, 2, 6, "Qué tal Henalu","2021-01-12", "2021-01-12");
-select * from users;
 
-select * from channels;
-select * from messages;
-
-
-{
-    about_me: "Hola, soy Gerardo",
-    area: "Sierra de la Cabrera",
-    country: "Spain", 
-    email: "gerardo@gmail.com",
-    expert: false,
-    gender: "Masculino",
-    mother_tongue: "Spanish",
-    pic: "image2.jpg", 
-    studies: "Master",
-    support_type: "Emocional",
-    user_id: 1, 
-    user_name: "Gerardo",
-    user_surname: "Mir",
-    years_in: "Mir"
-}
