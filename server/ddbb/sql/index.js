@@ -8,9 +8,6 @@ const pool = new Sequelize(
     process.env.PASS, {
     host: process.env.HOST,
     dialect: 'mysql',
-    define: {
-        timestamps: true
-    },
     pool: {
         max: 100,
         min: 0,
@@ -25,6 +22,9 @@ module.exports = pool;
 const pool = new Sequelize('dbTest', 'root','rootroot', {
     host: process.env.HOST,
     dialect: 'mysql',
+    define: {
+        timestamps: true
+    },
     pool: {
         max: 100,
         min: 0,
@@ -33,5 +33,5 @@ const pool = new Sequelize('dbTest', 'root','rootroot', {
     }
 }
 );
+module.exports = pool;
 */
-

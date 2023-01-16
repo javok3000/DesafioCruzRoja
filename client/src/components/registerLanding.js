@@ -14,6 +14,8 @@ import { SlideLegal } from './home/slideLegal';
 // import { PopRegister } from './welcome/popRegister';
 import { Register } from './register/register'
 import { ProfileRegister } from './register/profileRegister'
+import { PrefsRegister } from './register/prefsRegister'
+import { Login } from './welcome/login';
 
 
 export const RegisterLanding = () => {
@@ -42,6 +44,16 @@ export const RegisterLanding = () => {
                 {display === "profile" &&
                     <div>
                         <ProfileRegister />
+                    </div>
+                }
+                {display === "prefs" &&
+                    <div>
+                        <PrefsRegister />
+                    </div>
+                }
+                {display === "login" &&
+                    <div>
+                        <Login />
                     </div>
                 }
                 {display === "menu" &&

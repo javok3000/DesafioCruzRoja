@@ -3,7 +3,8 @@ version: '3.1'
 services:
 
   backend:
-    image: kikohernandez92/javoserver:91
+    image: javo3000/javoserver:135
+    ports:
       - 3001:3001
     networks:
       - localnet
@@ -13,7 +14,7 @@ services:
       - db
 
   frontend:
-    image: kikohernandez92/javoclient:83
+    image: javo3000/javoclient:139
     ports: 
       - 3000:80
     networks:

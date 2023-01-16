@@ -10,9 +10,8 @@ import defaultUser from '../../media/default-avatar.jpg'
 export const Register = () => {
     
     const { setDisplay, message, setMessage, showAlert, setShowAlert} = useContext(CreateRegisterContext);
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState("gofthet@gmail.com");
     const { token } = useParams();
-
     // Comprueba si el token de la url es válido
     useEffect(() => {
         defaultFetch("http://localhost:3001/check-email", "POST", { token: token })
@@ -29,13 +28,14 @@ export const Register = () => {
                     
                 }
             })
-
+    
     }, [])
-    setEmail("gofthet@gmail.com")
+    
     //Inserta el nuevo usuario
     const insertUser = async e => {
+        
         e.preventDefault();
-        console.log(e.target.confirmPass.value);
+        console.log(typeof(e.target.surname_.value));
         if (e.target.pass.value === e.target.confirmPass.value) {
             console.log(email);
             var newUser = {
@@ -57,40 +57,21 @@ export const Register = () => {
                 area: "", 
                 pic: defaultUser
             }
-                
-                // user_name : e.target.name_.value,
-                // surname : "",
-                // about_me : "",
-                // langauges: "",
-                // email : email,
-                // phone : "",
-                // studies : "",
-                // country : "",
-                // age : "",
-                // emotional_support : 0,
-                // legal_support : 0,
-                // collab_individual : false,
-                // collab_institution : false,
-                // job : false,
-                // password_ : e.target.pass.value,
-                // banned_users : {},
-            //     // favs : {}
-            // }
             const res = await defaultFetch("http://localhost:3001/register", "POST", newUser)
             if (res.mensaje) {
-                setMessage("Registro correcto, gracias")
+                setMessage("A continuación rellenaremos tu perfil")
                 setShowAlert(true)
                 setTimeout(() => {
                     setShowAlert(false);
                     setDisplay("profile")
-                }, 3000)
+                }, 2000)
 
             } else {
                 setMessage("Ha habido un error, inténtelo de nuevo")
                 setShowAlert(true)
                 setTimeout(() => {
                     setShowAlert(false);
-                }, 3000)
+                }, 2000)
             }
 
         } else {
@@ -123,16 +104,16 @@ export const Register = () => {
                     </div>
                     <div>
                         <label>Password</label>
-                        <input type="password" name="pass" minLength="4" maxLength="12" required />
+                        <input type="password" name="pass" required minLength="4" maxLength="12"  />
                     </div>
                     <div>
                         <label>Confirmar password</label>
-                        <input type="password" name="confirmPass" minLength="4" maxLength="12" required />
+                        <input type="password" name="confirmPass" required minLength="4" maxLength="12" />
                     </div>
-                    <div>
+                    <div className='messageBox'>
                         {showAlert && <Alert message={message} />}
                     </div>
-                    <input className='contButton' type="submit" value="Confirmar registro" />
+                    <input className='contButton' type="submit" value="Continuar" />
                 </form>
             </div>
         </div>
