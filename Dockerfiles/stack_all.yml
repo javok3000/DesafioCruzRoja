@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   backend:
-    image: javo3000/javoserver:160
+    image: javo3000/javoserver:182
     ports:
       - 3001:3001
     networks:
@@ -12,7 +12,7 @@ services:
     #  - /tmp/back:/usr/src/app
 
   frontend:
-    image: javo3000/javoclient:159
+    image: javo3000/javoclient:183
     ports: 
       - 3000:80
     networks:
