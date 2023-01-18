@@ -24,7 +24,7 @@ services:
   
 
   db:
-    image: javo3000/javoapi:195
+    image: javo3000/javoapi:198
     ports:
       - 5000:5000
     networks:
