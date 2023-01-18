@@ -5,14 +5,14 @@ import Cookies from 'universal-cookie';
 export const Firstcontact = () => {
     const cookies = new Cookies();
     var session = cookies.get("session");
-    const { display, setDisplay, user, setChannelId, currentUser } = useContext(CreateProfileContext);
+    const {  user, currentUser } = useContext(CreateProfileContext);
     const [messages, setMessages] = useState();
     const [refresh, setRefresh] = useState(false);
     const profileId = parseInt(localStorage.getItem('currentProfileId'))
     const channelId = parseInt(localStorage.getItem('currentChannelId'))
     useEffect(() => {
         console.log(user)
-        defaultFetch(`http://localhost:3001/msg/read_messages`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/read_messages`, "post",
             { token: session, channelId: channelId })
             .then((res) => {
                 if (res.length > 0) {
@@ -24,7 +24,7 @@ export const Firstcontact = () => {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        defaultFetch(`http://localhost:3001/msg/create_message`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/create_message`, "post",
             { token: session, fk_channel_id: channelId, recipient: profileId, message: e.target.message.value })
             .then((res) => {
                 if (res.length > 0) { setMessages(res) }

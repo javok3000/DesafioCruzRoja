@@ -20,6 +20,7 @@ import { NavBarLanguages } from './welcome/navBarLanguages';
 import { Search } from './home/search';
 import { NavBarMenuLogged } from './home/navBarMenuLogged';
 import { ReviewList } from './profile/reviewList';
+import { NavBottom } from './home/navBottom';
 
 export const Profile = () => {
     const cookies = new Cookies();
@@ -40,7 +41,7 @@ export const Profile = () => {
         var session = cookies.get("session");
         if (!session) { navigate('/') };
 
-        defaultFetch(`http://localhost:3001/get_current_user`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/get_current_user`, "post",
             { token: session })
             .then((res) => {
                 if (res.mensaje === "token error") { navigate('/') } else {
@@ -60,7 +61,7 @@ export const Profile = () => {
         if (idq) {
             let user = { id: idq, token: session }
             console.log(session)
-            defaultFetch(`http://localhost:3001/get_user`, "post",
+            defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/get_user`, "post",
                 user)
                 .then((res) => {
                     console.log(res)
@@ -70,21 +71,21 @@ export const Profile = () => {
             idq = 5;
         }
 
-        defaultFetch(`http://localhost:3001/get_users`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/get_users`, "post",
             { token: session })
             .then((res) => {
                 console.log(res)
                 setUserList(res)
             })
 
-        defaultFetch(`http://localhost:3001/msg/read_channels`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/read_channels`, "post",
             { token: session })
             .then((res) => {
                 console.log(res)
                 setChannelsAct(res)
             })
 
-        defaultFetch(`http://localhost:3001/msg/read_inactive_channels`, "post",
+        defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/read_inactive_channels`, "post",
             { token: session })
             .then((res) => {
                 console.log(res)
@@ -108,6 +109,7 @@ export const Profile = () => {
                     {pop &&
                         <Search setDisplay={setDisplay}/>
                     }
+                    <NavBottom setDisplay={setDisplay} display ={display}/>
                     <SlideEmotional />
                     <SlideLegal />
                 </div>
@@ -125,9 +127,10 @@ export const Profile = () => {
 
             {(display === "firstView" && user) &&
                 <div>
-                    <ProfileNavBar />
+                    <ProfileNavBar2 setDisplay={setDisplay}/>
                     <ProfileCard />
                     <ReviewList />
+                    <NavBottom setDisplay={setDisplay} display ={display}/>
                 </div>
             }
             {(display === "firstContact" && user) &&
@@ -139,8 +142,8 @@ export const Profile = () => {
             }
             {(display === "list" && user) &&
                 <div>
-                    <ProfileNavBar />
-                    <CardOnList />
+                    <ProfileNavBar setDisplay={setDisplay}/>
+                    <CardOnList setDisplay={setDisplay}/>
                 </div>
             }
             {(display === "inbox" && user) &&

@@ -4,7 +4,9 @@ import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import { CreateWelcomeContext } from '../providers/createWelcomeContex';
 import { Alert } from '../modals/alert';
-
+import logo from '../../media/cruz_roja_svg.svg'
+import logoText from '../../media/Frame.png'
+import cerrar from '../../media/cerrar.svg'
 export const Login = ({setDisplay}) => {
 
     const {  message, setMessage, showAlert, setShowAlert } = useContext(CreateWelcomeContext);
@@ -12,6 +14,7 @@ export const Login = ({setDisplay}) => {
     const navigate = useNavigate();
     const recoverPass = () => {setDisplay("forgot");}
     const signin = () => {setDisplay("sign-in");}
+    const close = () => {setDisplay("main");}
     //Login
     const sendLogin = async e => {
         e.preventDefault();
@@ -20,7 +23,7 @@ export const Login = ({setDisplay}) => {
             email: e.target.email.value,
             pass: e.target.pass.value
         };
-        await defaultFetch("http://localhost:3001/login", "POST", user).then((res) => {
+        await defaultFetch("http://cuevos3.westeurope.cloudapp.azure.com:3001/login", "POST", user).then((res) => {
             if (res.validation) {
                 localStorage.setItem("user", JSON.stringify(res.user));
                 cookies.set('session', res.token, { path: '/' });
@@ -41,6 +44,9 @@ export const Login = ({setDisplay}) => {
         <Alert message={message}/>
         }
          <div className='loginContainer'>
+            <img className='cerrar' src={cerrar} alt="close" onClick={close}/>
+         <img className='cross' src={logo} alt="redcross logo" />
+         <img className='crossText' src={logoText} alt="redcross logo" />
                     <form onSubmit={sendLogin}>
                         <div>
             
