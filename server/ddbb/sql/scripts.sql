@@ -125,11 +125,6 @@ DROP DATABASE dbTest;
 
 select * from users;
 
-    insert into users VALUES (null, 'Gerardo', 'Mir', 'gerardo@gmail.com',  '$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK', 1979,
-"Masculino",'Spanish','Más de dos años','Master','Sí', 'Emocional', false,'Sierra de la Cabrera','Hola, soy Gerardo',"2021-01-12", "2021-01-12",'Spain','image2.jpg');
-
-insert into users VALUES (null, 'Jorge', 'Coronilla','jorge@gmail.com',  '$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK', 1979,
-"Masculino",'Spanish','Más de dos años','Master','Sí', 'Emocional', false,'Sierra de la Cabrera','Hola, soy Jorge',"2021-01-12", "2021-01-12",'Spain','image2.jpg');
 
 insert into users VALUES (null,"Bonnie","Joann","bonnie.joann5@gmail.com","$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK",1997,"Femenino","Frances , Chino","De 1 año a 2 años","Sin graduado escolar","Si","Emocional",false,"Valle del Jarama","Juegos , Baile , Musica","2021-10-13","2021-10-13",null,"1.jpg");
 insert into users VALUES (null,"Hope","Cheryl","hope.cheryl8@aol.com","$2a$08$vf6oSJOftydbsA4LjT4nleBbJ3mnLiFmn/tc01KEcPiJ1aulf4fLK",1983,"No especificar","Aleman , Chino","De 1 año a 2 años","Master","No especificar","Orientacion sobre temas legales",true,"Valle Bajo del Lozoya","Lectura , Baile , Cine","2021-07-12","2021-07-12",null,"2.jpg");
