@@ -24,14 +24,14 @@ services:
     depends_on:
       - backend
   
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    networks:
-      - localnet
+  #db:
+    #image: mysql
+    #command: --default-authentication-plugin=mysql_native_password
+    #restart: always
+    #environment:
+      #MYSQL_ROOT_PASSWORD: root
+    #networks:
+      #- localnet
 
   dbmanager:
     image: adminer
