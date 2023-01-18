@@ -1,4 +1,4 @@
-DROP DATABASE dbTest;
+#DROP DATABASE dbTest;
     CREATE DATABASE dbTest;
     USE dbTest;
       CREATE TABLE users(
