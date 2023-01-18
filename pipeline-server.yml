@@ -49,7 +49,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerJavo'
-    repository: 'javo3000/javoserver'
+    repository: 'javo3000/javoserver:latest'
     command: 'buildAndPush'
     buildContext: 'server/'
     Dockerfile: 'Dockerfiles/server.Dockerfile'
