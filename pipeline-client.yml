@@ -38,7 +38,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerJavo'
-    repository: 'javo3000/javoclient:latest'
+    repository: 'javo3000/javoclient'
     command: 'buildAndPush'
     buildContext: 'client/'
     Dockerfile: 'Dockerfiles/client.Dockerfile'
