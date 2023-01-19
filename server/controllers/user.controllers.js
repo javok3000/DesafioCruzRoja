@@ -31,7 +31,7 @@ const User = {
                     expert: user.expert,
                     gender: user.gender,
                     mother_tongue: user.mother_tongue,
-                    pic: `http://localhost:3001/pics/${user.pic}`,
+                    pic: `http://cuevos3.westeurope.cloudapp.azure.com:3001/pics/${user.pic}`,
                     studies: user.studies,
                     support_type: user.support_type,
                     user_id: user.user_id,
@@ -71,7 +71,7 @@ const User = {
                     expert: user.expert,
                     gender: user.gender,
                     mother_tongue: user.mother_tongue,
-                    pic: `http://localhost:3001/pics/${user.pic}`,
+                    pic: `http://cuevos3.westeurope.cloudapp.azure.com:3001/pics/${user.pic}`,
                     studies: user.studies,
                     support_type: user.support_type,
                     user_id: user.user_id,
@@ -100,7 +100,7 @@ const User = {
         })
         if (userName) {
             try {
-                const users = await UserModel.findAll()
+                const users = await UserModel.findAll( {where: { country: 'Romania' } })
                 console.log(users);
                 let usersList = []
                 users.map(user => {
@@ -111,7 +111,7 @@ const User = {
                         expert: user.expert,
                         gender: user.gender,
                         mother_tongue: user.mother_tongue,
-                        pic: `http://localhost:3001/pics/${user.pic}`,
+                        pic: `http://cuevos3.westeurope.cloudapp.azure.com:3001/pics/${user.pic}`,
                         studies: user.studies,
                         support_type: user.support_type,
                         user_id: user.user_id,

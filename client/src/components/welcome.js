@@ -17,7 +17,7 @@ import { NavBottom } from './home/navBottom';
 import { defaultFetch } from '../helpers/defaultHelpers';
 import { Search } from './home/search';
 import { CookiesBanner } from './welcome/cookiesBanner';
-
+import { SignInScreen } from './welcome/signInScreen';
 
 
 export const Welcome = () => {
@@ -34,7 +34,7 @@ export const Welcome = () => {
         var session = cookies.get("session");
         if(!session) { navigate('/')};
 
-       defaultFetch(`http://localhost:3001/get_current_user`, "post",
+       defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/get_current_user`, "post",
        { token: session })
        .then((res) => {
             if (res.mensaje==="token error") { navigate('/')} else {
@@ -80,7 +80,7 @@ export const Welcome = () => {
                     <Login setDisplay={setDisplay}/>
                 }
                 {display === "sign-in" &&
-                    <SignIn setDisplay={setDisplay}/>
+                    <SignInScreen setDisplay={setDisplay}/>
                 }
                 {
                 display === "list" &&

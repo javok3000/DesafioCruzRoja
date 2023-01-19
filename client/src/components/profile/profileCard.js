@@ -2,22 +2,24 @@ import React, { useContext, useEffect } from 'react'
 import { defaultFetch } from '../../helpers/defaultHelpers';
 import { CreateProfileContext } from '../providers/createProfileContext';
 import Cookies from 'universal-cookie';
+import {Favs} from './favs.js'
+
 export const ProfileCard = () => {
   const cookies = new Cookies();
   var session = cookies.get("session");
   const { display, setDisplay, user, setUser, channelId, setChannelId, currentUser } = useContext(CreateProfileContext);
-  const profileId = parseInt(localStorage.getItem('currentProfileId'))
-
+  const profileId = parseInt(localStorage.getItem('recipientId'))
+  
   const firstMessage = () => {
 
-    defaultFetch(`http://localhost:3001/msg/check_channel`, "post",
+    defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/check_channel`, "post",
       { currentProfileId: profileId, token: session })
       .then((res) => {
         if (res) {
           localStorage.setItem('currentChannelId', res.id)
           setDisplay("firstContact");
         } else {
-          defaultFetch(`http://localhost:3001/msg/create_channel`, "post",
+          defaultFetch(`http://cuevos3.westeurope.cloudapp.azure.com:3001/msg/create_channel`, "post",
             { token: session, 
               recipient: profileId , 
               sendPic:  currentUser.pic, 
@@ -43,12 +45,15 @@ const list = () =>{
 
 
           <img className='profilePic' src={user.pic} alt="user 1" />
+          <div className='favBG' id={user.user_id}>
+            <Favs/>
+          </div>
           <h3>{user.user_name}</h3>
           <h5>22 reseñas Verificado</h5>
 
           <div className='profileBtns'>
             
-            <button className='loginBtn3' onClick={list}>55 personas han recibido su ayuda</button>
+            <button className='loginBtn3' onClick={list}>50+ personas han recibido su ayuda</button>
             <button className='signinBtn2' onClick={firstMessage}>enviar mensaje</button>
 
           </div>

@@ -17,9 +17,12 @@ export const PrefsRegister = () => {
     const [legal, setLegal] = useState(false);
     const [labor, setLabor] = useState(false);
     const [disable, setDisable] = useState(true)
+    const navigate = useNavigate()
+    const close = () => {navigate('/')}
+    
     // Comprueba si el token de la url es válido
     useEffect(() => {
-        defaultFetch("http://localhost:3001/check-email", "POST", { token: token })
+        defaultFetch("http://cuevos3.westeurope.cloudapp.azure.com:3001/check-email", "POST", { token: token })
             .then((res) => {
                 if (res.mensaje) {
                     setEmail(res.email);
@@ -60,9 +63,9 @@ export const PrefsRegister = () => {
             // area: region, 
             // pic: defaultUser
         }
-        const res = await defaultFetch("http://localhost:3001/registerPrefs", "POST", newUser)
+        const res = await defaultFetch("http://cuevos3.westeurope.cloudapp.azure.com:3001/registerPrefs", "POST", newUser)
         if (res.mensaje) {
-            setMessage("Registro completo")
+            setMessage("Registro correcto! Haz login en tu cuenta")
             setShowAlert(true)
             setTimeout(() => {
                 setShowAlert(false);
@@ -85,7 +88,7 @@ export const PrefsRegister = () => {
         <div className='register-container'>
             <div className="register-nav">
                 <Logo />
-                <div className='GrCloseBig'><Close /></div>
+                <div className='GrCloseBig'onClick={close}><Close /></div>
             </div>
             <div className="register-header">
                 <div className='regTitle'><h1>Sé parte de la comunidad</h1></div>
@@ -125,7 +128,7 @@ export const PrefsRegister = () => {
                 <div className='inputRegister'>
                     <input className='pcontButton' type="button" onClick={updateUser} disabled={disable} value="Finalizar" />
                 </div>
-                <div className='messageRegister'>
+                <div className='messageRegisterR'>
                     {showAlert && <Alert message={message} />}
                 </div>
             </div>
